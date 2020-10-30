@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="js/form-validation.js"></script>
+        <style>
+            #formsubmit {
+                max-width: 30em;
+                background-color: aliceblue;
+                text-align: center;
+            }
+            p {
+                font-size: large;
+            }
+        </style>
+        <title>Form registration</title>
+    </head>
+    
+    <body style="background-color: silver;">
+        <div class="container" id="formsubmit">
+            <form>
+                <p>Application Form</p>
+                <br>
+                <p>Full Name <input pattern="[a-zA-Z]+" oninvalid="setCustomValidity('only alphabetical characters a-z are allowed.')" oninput="setCustomValidity('')" required></p>
+                <br>
+                <p>Email Address <input type="email" oninvalid="setCustomValidity('Please enter valid email address.')" required oninput="setCustomValidity('')"></p>
+                <br>
+                <p> Mobile Number <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please enter a valid number in format: xxx-xxx-xxxx')"></p>
+                <br>
+                <p>County
+                    <select name="country"  id="country" required oninput="setCustomValidity('')" oninvalid="setCustomValidity('Please select a valid country.')">
+                        <option label="Select country" selected="selected"></option>
+                        <option value="USA" label="United States"></option>
+                        <option value="UK" label="United Kingdom"></option>
+                        <option value="IN" label="India"></option>
+                        <option value="AU" label="Australia"></option>
+                    </select>
+                </p>
+                <br>
+                <p>Gender<br>
+                    <input type="radio" id="male" name="gender" value="male" required oninput="setCustomValidity('')"  oninvalid="setCustomValidity('Please select gender.')">
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Female</label>
+                </p>
+                <br>
+                <p>Hobbies<br>
+                    <input type="checkbox" id="hobby1" name="hobby1" value="sports">
+                    <label for="hobby1">Sports</label>
+                    <input type="checkbox" id="hobby2" name="hobby2" value="movies">
+                    <label for="hobby2">Movies</label>
+                    <input type="checkbox" id="hobby3" name="hobby3" value="music">
+                    <label for="hobby3">Music</label>
+                </p>
+                <br>
+                <p><input type="submit" value="Submit" onsubmit="checkValues()"></p>
+            </form>
+        </div>
+        
+    </body>
+</html>
